@@ -1,25 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
+import {useEffect, useState} from "react";
+
+const useTitle = (initialValue) => {
+   const [title, setTitle] = useState(initialValue);
+   const updateTitle = () => {
+       const htmlTitle = document.querySelector("title");
+       htmlTitle.innerText = title;
+   }
+   useEffect(updateTitle, [title]);
+   return setTitle;
+}
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const titleUpdater = useTitle("Loading...");
+    const [item, setItem] = useState('');
+    return (
+        <div className="App">
+            <h1>start</h1>
+        </div>
+    );
 }
 
 export default App;
