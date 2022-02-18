@@ -16,6 +16,10 @@ const useTitle = (initialValue) => {
 function App() {
     const titleUpdater = useTitle("Loading...");
     const [item, setItem] = useState('');
+
+    const onClickGo = () => {
+        setItem('false');
+    }
     return (
         <div className="App">
             <h1>start</h1>
