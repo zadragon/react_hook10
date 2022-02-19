@@ -12,17 +12,16 @@ const useTitle = (initialValue) => {
    return setTitle;
 }
 
+const useInput = initialValue => {
+    const [value, setValue] = useState(initialValue);
+    return value;
+}
 
 function App() {
-    const titleUpdater = useTitle("Loading...");
-    const [item, setItem] = useState('');
-
-    const onClickGo = () => {
-        setItem('false');
-    }
+    const name = useInput("Mr.")
     return (
         <div className="App">
-            <h1>start</h1>
+            <input type="text" {...name} />
         </div>
     );
 }
